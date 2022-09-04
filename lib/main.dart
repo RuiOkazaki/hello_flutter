@@ -81,15 +81,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 Text("ふがり"),
               ],
             ),
-            SizedBox(
-              width: 300,
-              height: 300,
-              child: Column(
-                // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [row, row, row],
-              ),
-            )
+            Expanded(
+                child: GridView.count(crossAxisCount: 3,
+                    //shrinkWrap: true,
+                    children: [
+                  for (var i = 0; i < 18; i++)
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: ColoredBox(color: Colors.indigo),
+                    )
+                ])),
           ],
         ),
       ),
