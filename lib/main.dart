@@ -64,6 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
             const Text(
               'You have pushed the button this many times:',
@@ -81,16 +82,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 Text("ふがり"),
               ],
             ),
-            Expanded(
-                child: GridView.count(crossAxisCount: 3,
-                    //shrinkWrap: true,
-                    children: [
-                  for (var i = 0; i < 18; i++)
-                    const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: ColoredBox(color: Colors.indigo),
-                    )
-                ])),
+            // Expanded()
+            // shrinkWrap: true,
+            SizedBox(
+              width: 200,
+              height: 200,
+              child: GridView.count(crossAxisCount: 3, children: [
+                for (var i = 0; i < 9; i++)
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: ColoredBox(color: Colors.indigo),
+                  )
+              ]),
+            ),
           ],
         ),
       ),
