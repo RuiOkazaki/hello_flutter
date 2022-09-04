@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sample_app/my_home_page.dart';
-import 'package:sample_app/text_field_page.dart';
+import 'package:sample_app/first_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,8 +22,7 @@ class MyApp extends StatelessWidget {
       ),
       // darkThemeを先程宣言したdarkThemeにする
       darkTheme: darkTheme,
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home: const TextFieldPage(),
+      home: const FirstPage(),
     );
   }
 }
