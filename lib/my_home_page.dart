@@ -6,17 +6,31 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
+  // stateを生成し，_MyHomePageStateへ渡している？
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int _counter2 = 1;
 
   // 関数を宣言
   void _incrementCounter() {
     // _counterのsetterで値をincrementしている
     setState(() {
       _counter++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
+
+  void _doubleCounter() {
+    setState(() {
+      _counter2 *= 2;
     });
   }
 
@@ -31,20 +45,28 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            Text(_counter.toString()),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                    onPressed: _incrementCounter,
+                    child: const Text('increment')),
+                TextButton(
+                    onPressed: _decrementCounter,
+                    child: const Text('decrement')),
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            Text(_counter2.toString()),
+            TextButton(
+              onPressed: _doubleCounter,
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.green)),
+              child:
+                  const Text('double', style: TextStyle(color: Colors.white)),
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
