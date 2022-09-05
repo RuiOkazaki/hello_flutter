@@ -9,17 +9,21 @@ class FirstPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('FirstPage'),
       ),
-      body: TextButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/second');
-          },
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text('Go to SecondPage', style: TextStyle(fontSize: 18)),
-              Icon(Icons.arrow_forward_ios, size: 24),
-            ],
-          )),
+      body: Column(
+        children: [
+          TextButton.icon(
+            onPressed: () {
+              Navigator.pushNamed(context, '/second');
+            },
+            icon: const Icon(Icons.arrow_forward_ios, size: 24),
+            label:
+                const Text('Go to SecondPage', style: TextStyle(fontSize: 18)),
+          ),
+          TextButton(
+              onPressed: () => Navigator.pushNamed(context, '/user_list'),
+              child: const Text("Go to UserListPage"))
+        ],
+      ),
     );
   }
 }
