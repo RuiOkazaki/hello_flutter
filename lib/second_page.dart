@@ -6,11 +6,14 @@ class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SecondPage'),
-      ),
-      body: const IconButton(
-          onPressed: () {}, icon: Icon(Icons.arrow_forward_ios)),
-    );
+        appBar: AppBar(
+          title: const Text('SecondPage'),
+          backgroundColor: Colors.green,
+        ),
+        body: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back_ios)));
   }
 }
