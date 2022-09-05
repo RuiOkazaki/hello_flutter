@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sample_app/first_page.dart';
+import 'package:sample_app/second_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +23,11 @@ class MyApp extends StatelessWidget {
       ),
       // darkThemeを先程宣言したdarkThemeにする
       darkTheme: darkTheme,
-      home: const FirstPage(),
+      initialRoute: '/',
+      routes: <String, WidgetBuilder>{
+        '/': (BuildContext context) => const FirstPage(),
+        '/second': (BuildContext context) => const SecondPage(),
+      },
     );
   }
 }

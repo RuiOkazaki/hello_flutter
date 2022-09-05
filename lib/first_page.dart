@@ -1,7 +1,4 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:sample_app/second_page.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({Key? key}) : super(key: key);
@@ -14,12 +11,7 @@ class FirstPage extends StatelessWidget {
       ),
       body: TextButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => const SecondPage(),
-              ),
-            );
+            Navigator.pushNamed(context, '/second');
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
